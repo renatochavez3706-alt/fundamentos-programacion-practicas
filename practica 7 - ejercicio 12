@@ -1,0 +1,88 @@
+#include<iostream>
+using namespace std;
+
+void leerDatos(int &dia, int &mes, int &anio);
+bool validarFecha(int dia, int mes, int anio);
+void mostrarResultado(bool valida);
+
+int main(){
+
+    int dia, mes, anio;
+    bool valida;
+
+    leerDatos(dia, mes, anio);
+
+    valida = validarFecha(dia, mes, anio);
+
+    mostrarResultado(valida);
+
+    return 0;
+}
+
+void leerDatos(int &dia, int &mes, int &anio){
+
+    cout<<"Ingrese el dia: "<<endl;
+    cin>>dia;
+
+    cout<<"Ingrese el mes: "<<endl;
+    cin>>mes;
+
+    cout<<"Ingrese el anio: "<<endl;
+    cin>>anio;
+}
+
+bool validarFecha(int dia, int mes, int anio){
+
+    int diasMes;
+
+    if(mes < 1 || mes > 12){
+
+        return false;
+    }
+
+    if(mes == 2){
+
+        if((anio % 4 == 0 && anio % 100 != 0) || (anio % 400 == 0)){
+
+            diasMes = 29;
+        }
+
+        else{
+
+            diasMes = 28;
+        }
+    }
+
+    else if(mes == 4 || mes == 6 || mes == 9 || mes == 11){
+
+        diasMes = 30;
+    }
+
+    else{
+
+        diasMes = 31;
+    }
+
+    if(dia >= 1 && dia <= diasMes){
+
+        return true;
+    }
+
+    else{
+
+        return false;
+    }
+}
+
+void mostrarResultado(bool valida){
+
+    if(valida){
+
+        cout<<"La fecha es valida"<<endl;
+    }
+
+    else{
+
+        cout<<"La fecha es invalida"<<endl;
+    }
+}
