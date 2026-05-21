@@ -1,0 +1,58 @@
+#include<iostream>
+using namespace std;
+void leerDatos(float &A, float &B, float &C, float &D, float &E, float &F);
+void resolverSistema(float A, float B, float C, float D, float E, float F, float &x, float &y);
+void mostrarResultado(float x, float y);
+
+int main(){
+
+    float A, B, C, D, E, F;
+    float x, y;
+
+    leerDatos(A, B, C, D, E, F);
+
+    resolverSistema(A, B, C, D, E, F, x, y);
+
+    mostrarResultado(x, y);
+
+    return 0;
+}
+
+void leerDatos(float &A, float &B, float &C, float &D, float &E, float &F){
+
+    cout<<"Ingrese A: "<<endl;
+    cin>>A;
+
+    cout<<"Ingrese B: "<<endl;
+    cin>>B;
+
+    cout<<"Ingrese C: "<<endl;
+    cin>>C;
+
+    cout<<"Ingrese D: "<<endl;
+    cin>>D;
+
+    cout<<"Ingrese E: "<<endl;
+    cin>>E;
+
+    cout<<"Ingrese F: "<<endl;
+    cin>>F;
+}
+
+void resolverSistema(float A, float B, float C, float D, float E, float F, float &x, float &y){
+
+    float determinante;
+
+    determinante = (A * E) - (B * D);
+
+    x = ((B * F) - (C * E)) / determinante;
+
+    y = ((C * D) - (A * F)) / determinante;
+}
+
+void mostrarResultado(float x, float y){
+
+    cout<<"El valor de x es: "<<x<<endl;
+
+    cout<<"El valor de y es: "<<y<<endl;
+}
