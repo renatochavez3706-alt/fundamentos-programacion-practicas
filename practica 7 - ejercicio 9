@@ -1,0 +1,51 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+void leerDato(int &binario);
+int convertirDecimal(int binario);
+void mostrarResultado(int decimal);
+
+int main(){
+
+    int binario, decimal;
+
+    leerDato(binario);
+
+    decimal = convertirDecimal(binario);
+
+    mostrarResultado(decimal);
+
+    return 0;
+}
+
+void leerDato(int &binario){
+
+    cout<<"Ingrese un numero binario: "<<endl;
+    cin>>binario;
+}
+
+int convertirDecimal(int binario){
+
+    int decimal = 0;
+    int i = 0;
+    int digito;
+
+    while(binario > 0){
+
+        digito = binario % 10;
+
+        decimal = decimal + (digito * pow(2, i));
+
+        binario = binario / 10;
+
+        i++;
+    }
+
+    return decimal;
+}
+
+void mostrarResultado(int decimal){
+
+    cout<<"El equivalente decimal es: "<<decimal<<endl;
+}
