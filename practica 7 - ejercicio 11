@@ -1,0 +1,112 @@
+#include<iostream>
+using namespace std;
+
+void leerDato(float &n);
+void convertirLiteral(int n);
+void mostrarResultado(float n);
+
+int main(){
+
+    float n;
+
+    leerDato(n);
+
+    mostrarResultado(n);
+
+    return 0;
+}
+
+void leerDato(float &n){
+
+    cout<<"Ingrese un monto: "<<endl;
+    cin>>n;
+}
+
+void convertirLiteral(int n){
+
+    int miles, centenas, decenas, unidades;
+
+    miles = n / 1000;
+    centenas = (n % 1000) / 100;
+    decenas = (n % 100) / 10;
+    unidades = n % 10;
+
+    if(miles == 1) cout<<"un mil ";
+    if(miles == 2) cout<<"dos mil ";
+    if(miles == 3) cout<<"tres mil ";
+    if(miles == 4) cout<<"cuatro mil ";
+    if(miles == 5) cout<<"cinco mil ";
+    if(miles == 6) cout<<"seis mil ";
+    if(miles == 7) cout<<"siete mil ";
+    if(miles == 8) cout<<"ocho mil ";
+    if(miles == 9) cout<<"nueve mil ";
+
+    if(centenas == 1 && (n % 100) == 0) cout<<"cien ";
+    else{
+        if(centenas == 1) cout<<"ciento ";
+        if(centenas == 2) cout<<"doscientos ";
+        if(centenas == 3) cout<<"trescientos ";
+        if(centenas == 4) cout<<"cuatrocientos ";
+        if(centenas == 5) cout<<"quinientos ";
+        if(centenas == 6) cout<<"seiscientos ";
+        if(centenas == 7) cout<<"setecientos ";
+        if(centenas == 8) cout<<"ochocientos ";
+        if(centenas == 9) cout<<"novecientos ";
+    }
+
+    if(decenas == 1){
+
+        if(unidades == 0) cout<<"diez ";
+        if(unidades == 1) cout<<"once ";
+        if(unidades == 2) cout<<"doce ";
+        if(unidades == 3) cout<<"trece ";
+        if(unidades == 4) cout<<"catorce ";
+        if(unidades == 5) cout<<"quince ";
+        if(unidades == 6) cout<<"dieciseis ";
+        if(unidades == 7) cout<<"diecisiete ";
+        if(unidades == 8) cout<<"dieciocho ";
+        if(unidades == 9) cout<<"diecinueve ";
+    }
+
+    else{
+
+        if(decenas == 2) cout<<"veinte ";
+        if(decenas == 3) cout<<"treinta ";
+        if(decenas == 4) cout<<"cuarenta ";
+        if(decenas == 5) cout<<"cincuenta ";
+        if(decenas == 6) cout<<"sesenta ";
+        if(decenas == 7) cout<<"setenta ";
+        if(decenas == 8) cout<<"ochenta ";
+        if(decenas == 9) cout<<"noventa ";
+
+        if(decenas >= 3 && unidades > 0){
+
+            cout<<"y ";
+        }
+
+        if(decenas != 1){
+
+            if(unidades == 1) cout<<"uno ";
+            if(unidades == 2) cout<<"dos ";
+            if(unidades == 3) cout<<"tres ";
+            if(unidades == 4) cout<<"cuatro ";
+            if(unidades == 5) cout<<"cinco ";
+            if(unidades == 6) cout<<"seis ";
+            if(unidades == 7) cout<<"siete ";
+            if(unidades == 8) cout<<"ocho ";
+            if(unidades == 9) cout<<"nueve ";
+        }
+    }
+}
+
+void mostrarResultado(float n){
+
+    int entero, decimal;
+
+    entero = n;
+    decimal = (n - entero) * 100;
+
+    convertirLiteral(entero);
+
+    cout<<decimal<<"/100 bolivianos"<<endl;
+}
