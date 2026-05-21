@@ -1,0 +1,56 @@
+#include<iostream>
+using namespace std;
+
+void leerDatos(int &n, int &r);
+int FAC(int n);
+float combinatorio(int n, int r);
+void mostrarResultado(float resultado);
+
+int main(){
+
+    int n, r;
+    float resultado;
+
+    leerDatos(n, r);
+
+    resultado = combinatorio(n, r);
+
+    mostrarResultado(resultado);
+
+    return 0;
+}
+
+void leerDatos(int &n, int &r){
+
+    cout<<"Ingrese el valor de n: "<<endl;
+    cin>>n;
+
+    cout<<"Ingrese el valor de r: "<<endl;
+    cin>>r;
+}
+
+int FAC(int n){
+
+    int factorial = 1;
+
+    for(int i = 1; i <= n; i++){
+
+        factorial = factorial * i;
+    }
+
+    return factorial;
+}
+
+float combinatorio(int n, int r){
+
+    float C;
+
+    C = FAC(n) / (FAC(r) * FAC(n-r));
+
+    return C;
+}
+
+void mostrarResultado(float resultado){
+
+    cout<<"El numero combinatorio es: "<<resultado<<endl;
+}
