@@ -1,0 +1,43 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+void leerDatos(float &x, float &y);
+float POTEN(float x, float y);
+void mostrarResultado(float resultado);
+
+int main(){
+
+    float x, y, resultado;
+
+    leerDatos(x, y);
+
+    resultado = POTEN(x, y);
+
+    mostrarResultado(resultado);
+
+    return 0;
+}
+
+void leerDatos(float &x, float &y){
+
+    cout<<"Ingrese la base: "<<endl;
+    cin>>x;
+
+    cout<<"Ingrese el exponente: "<<endl;
+    cin>>y;
+}
+
+float POTEN(float x, float y){
+
+    float potencia;
+
+    potencia = pow(x, y);
+
+    return potencia;
+}
+
+void mostrarResultado(float resultado){
+
+    cout<<"La potencia es: "<<resultado<<endl;
+}
