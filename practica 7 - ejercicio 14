@@ -1,0 +1,100 @@
+#include<iostream>
+using namespace std;
+
+void leerFecha(int &dia, int &mes, int &anio);
+int diasTotales(int dia, int mes, int anio);
+bool bisiesto(int anio);
+void calcularDias(int d1, int m1, int a1, int d2, int m2, int a2);
+
+int main(){
+
+    int d1, m1, a1;
+    int d2, m2, a2;
+
+    cout<<"Primera fecha"<<endl;
+    leerFecha(d1, m1, a1);
+
+    cout<<"Segunda fecha"<<endl;
+    leerFecha(d2, m2, a2);
+
+    calcularDias(d1, m1, a1, d2, m2, a2);
+
+    return 0;
+}
+
+void leerFecha(int &dia, int &mes, int &anio){
+
+    cout<<"Ingrese el dia: "<<endl;
+    cin>>dia;
+
+    cout<<"Ingrese el mes: "<<endl;
+    cin>>mes;
+
+    cout<<"Ingrese el anio: "<<endl;
+    cin>>anio;
+}
+
+bool bisiesto(int anio){
+
+    if((anio % 4 == 0 && anio % 100 != 0) || (anio % 400 == 0)){
+
+        return true;
+    }
+
+    else{
+
+        return false;
+    }
+}
+
+int diasTotales(int dia, int mes, int anio){
+
+    int total = 0;
+
+    int diasMes[] = {31,28,31,30,31,30,31,31,30,31,30,31};
+
+    for(int i = 1; i < anio; i++){
+
+        if(bisiesto(i)){
+
+            total = total + 366;
+        }
+
+        else{
+
+            total = total + 365;
+        }
+    }
+
+    for(int i = 0; i < mes - 1; i++){
+
+        total = total + diasMes[i];
+    }
+
+    if(mes > 2 && bisiesto(anio)){
+
+        total = total + 1;
+    }
+
+    total = total + dia;
+
+    return total;
+}
+
+void calcularDias(int d1, int m1, int a1, int d2, int m2, int a2){
+
+    int total1, total2, diferencia;
+
+    total1 = diasTotales(d1, m1, a1);
+
+    total2 = diasTotales(d2, m2, a2);
+
+    diferencia = total2 - total1;
+
+    if(diferencia < 0){
+
+        diferencia = diferencia * (-1);
+    }
+
+    cout<<"Los dias transcurridos son: "<<diferencia<<endl;
+}
