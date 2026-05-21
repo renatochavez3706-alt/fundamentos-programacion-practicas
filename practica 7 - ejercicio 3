@@ -1,0 +1,60 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+void leerDatos(int &x, int &n);
+int FAC(int n);
+float sumaSerie(int x, int n);
+void mostrarResultado(float resultado);
+
+int main(){
+
+    int x, n;
+    float resultado;
+
+    leerDatos(x, n);
+
+    resultado = sumaSerie(x, n);
+
+    mostrarResultado(resultado);
+
+    return 0;
+}
+
+void leerDatos(int &x, int &n){
+
+    cout<<"Ingrese el valor de X: "<<endl;
+    cin>>x;
+
+    cout<<"Ingrese el valor de N: "<<endl;
+    cin>>n;
+}
+
+int FAC(int n){
+
+    int factorial = 1;
+
+    for(int i = 1; i <= n; i++){
+
+        factorial = factorial * i;
+    }
+
+    return factorial;
+}
+
+float sumaSerie(int x, int n){
+
+    float suma = 0;
+
+    for(int i = 1; i <= n; i++){
+
+        suma = suma + (pow(x, i) / FAC(i));
+    }
+
+    return suma;
+}
+
+void mostrarResultado(float resultado){
+
+    cout<<"La suma de la serie es: "<<resultado<<endl;
+}
