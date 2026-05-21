@@ -1,0 +1,67 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+void leerDatos(float &a, float &b, float &c);
+void resolverEcuacion(float a, float b, float c);
+
+int main(){
+
+    float a, b, c;
+
+    leerDatos(a, b, c);
+
+    resolverEcuacion(a, b, c);
+
+    return 0;
+}
+
+void leerDatos(float &a, float &b, float &c){
+
+    cout<<"Ingrese el valor de a: "<<endl;
+    cin>>a;
+
+    cout<<"Ingrese el valor de b: "<<endl;
+    cin>>b;
+
+    cout<<"Ingrese el valor de c: "<<endl;
+    cin>>c;
+}
+
+void resolverEcuacion(float a, float b, float c){
+
+    float discriminante, x1, x2, parteReal, parteImaginaria;
+
+    discriminante = (b * b) - (4 * a * c);
+
+    if(discriminante > 0){
+
+        x1 = (-b + sqrt(discriminante)) / (2 * a);
+
+        x2 = (-b - sqrt(discriminante)) / (2 * a);
+
+        cout<<"Las raices reales son: "<<endl;
+        cout<<"x1 = "<<x1<<endl;
+        cout<<"x2 = "<<x2<<endl;
+    }
+
+    else if(discriminante == 0){
+
+        x1 = -b / (2 * a);
+
+        cout<<"La raiz doble es: "<<x1<<endl;
+    }
+
+    else{
+
+        parteReal = -b / (2 * a);
+
+        parteImaginaria = sqrt(-discriminante) / (2 * a);
+
+        cout<<"Las raices complejas son: "<<endl;
+
+        cout<<"x1 = "<<parteReal<<" + "<<parteImaginaria<<"i"<<endl;
+
+        cout<<"x2 = "<<parteReal<<" - "<<parteImaginaria<<"i"<<endl;
+    }
+}
