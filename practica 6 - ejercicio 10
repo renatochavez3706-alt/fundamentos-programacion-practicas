@@ -1,0 +1,58 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    float parcial1, parcial2;
+    float practico, finalEx;
+    float promedioParciales;
+    float notaFinal;
+    int faltas;
+    char opcion;
+
+    do {
+
+        cout << "Ingrese nota del primer parcial: ";
+        cin >> parcial1;
+
+        cout << "Ingrese nota del segundo parcial: ";
+        cin >> parcial2;
+
+        cout << "Ingrese nota del examen practico: ";
+        cin >> practico;
+
+        cout << "Ingrese nota del examen final: ";
+        cin >> finalEx;
+
+        cout << "Ingrese numero de faltas: ";
+        cin >> faltas;
+
+        if (faltas > (48 * 0.20)) {
+            finalEx = 0;
+            cout << "El examen final fue anulado por exceso de faltas." << endl;
+        }
+
+        promedioParciales = (parcial1 + parcial2) / 2;
+
+        notaFinal = (promedioParciales * 0.40)
+                  + (practico * 0.20)
+                  + (finalEx * 0.40);
+
+        cout << "Promedio de parciales: " << promedioParciales << endl;
+        cout << "Nota final: " << notaFinal << endl;
+
+        if (notaFinal >= 51) {
+            cout << "APROBADO" << endl;
+        }
+        else {
+            cout << "REPROBADO" << endl;
+        }
+        cout << "Desea calcular otra nota? (s/n): ";
+        cin >> opcion;
+
+        cout << endl;
+
+    } while (opcion == 's' || opcion == 'S');
+
+    return 0;
+}
