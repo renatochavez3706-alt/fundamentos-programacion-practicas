@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int h1, m1, s1;
+    int h2, m2, s2;
+    int total1, total2, diferencia;
+    int horas, minutos, segundos;
+    cout << "Ingrese el primer horario (hh mm ss): ";
+    cin >> h1 >> m1 >> s1;
+    cout << "Ingrese el segundo horario (hh mm ss): ";
+    cin >> h2 >> m2 >> s2;
+    total1 = h1 * 3600 + m1 * 60 + s1;
+    total2 = h2 * 3600 + m2 * 60 + s2;
+    diferencia = total2 - total1;
+    horas = diferencia / 3600;
+    diferencia = diferencia % 3600;
+    minutos = diferencia / 60;
+    segundos = diferencia % 60;
+    cout << "Tiempo transcurrido: ";
+    cout << horas << ":" << minutos << ":" << segundos;
+    return 0;
+}
