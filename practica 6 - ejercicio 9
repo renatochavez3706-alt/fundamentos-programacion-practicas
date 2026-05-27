@@ -1,0 +1,54 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    int opcion;
+    float L, R, B, H, area;
+    const float PI = 3.1416;
+
+    // Menu
+    cout << "MENU DE AREAS" << endl;
+    cout << "1. Area del cuadrado" << endl;
+    cout << "2. Area del circulo" << endl;
+    cout << "3. Area del triangulo" << endl;
+    cout << "Seleccione una opcion: ";
+    cin >> opcion;
+
+    // Procesos
+    if (opcion == 1) {
+
+        cout << "Ingrese el lado del cuadrado: ";
+        cin >> L;
+
+        area = L * L;
+
+        cout << "Area del cuadrado = " << area;
+    }
+    else if (opcion == 2) {
+
+        cout << "Ingrese el radio del circulo: ";
+        cin >> R;
+
+        area = PI * R * R;
+
+        cout << "Area del circulo = " << area;
+    }
+    else if (opcion == 3) {
+
+        cout << "Ingrese la base del triangulo: ";
+        cin >> B;
+
+        cout << "Ingrese la altura del triangulo: ";
+        cin >> H;
+
+        area = (B * H) / 2;
+
+        cout << "Area del triangulo = " << area;
+    }
+    else {
+        cout << "Opcion no valida";
+    }
+
+    return 0;
+}
