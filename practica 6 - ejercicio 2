@@ -1,0 +1,41 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+    float a, b, c;
+    float x1, x2, discriminante;
+
+    cout << "Ingrese el valor de a: ";
+    cin >> a;
+
+    cout << "Ingrese el valor de b: ";
+    cin >> b;
+
+    cout << "Ingrese el valor de c: ";
+    cin >> c;
+
+    // Calcular discriminante
+    discriminante = (b * b) - (4 * a * c);
+
+    // Verificar si existen soluciones reales
+    if (discriminante > 0) {
+        x1 = (-b + sqrt(discriminante)) / (2 * a);
+        x2 = (-b - sqrt(discriminante)) / (2 * a);
+
+        cout << "Las soluciones reales son:" << endl;
+        cout << "x1 = " << x1 << endl;
+        cout << "x2 = " << x2 << endl;
+    }
+    else if (discriminante == 0) {
+        x1 = -b / (2 * a);
+
+        cout << "Existe una solucion real doble:" << endl;
+        cout << "x1 = x2 = " << x1 << endl;
+    }
+    else {
+        cout << "La ecuacion no tiene soluciones reales";
+    }
+
+    return 0;
+}
