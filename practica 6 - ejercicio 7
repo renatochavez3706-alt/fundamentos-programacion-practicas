@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    float a, b, c;
+    float d, e, f;
+    float X, Y;
+    float det;
+
+    cout << "Ingrese a, b, c: ";
+    cin >> a >> b >> c;
+
+    cout << "Ingrese d, e, f: ";
+    cin >> d >> e >> f;
+
+    det = (a * e) - (b * d);
+
+    if (det != 0) {
+
+        X = (c * e - b * f) / det;
+        Y = (a * f - c * d) / det;
+
+        cout << "El sistema tiene una unica solucion:" << endl;
+        cout << "X = " << X << endl;
+        cout << "Y = " << Y << endl;
+    }
+    else {
+
+        if ((a * f == c * d) && (b * f == c * e)) {
+            cout << "El sistema tiene infinitas soluciones";
+        }
+        else {
+            cout << "El sistema no tiene solucion";
+        }
+    }
+
+    return 0;
+}
