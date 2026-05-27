@@ -1,0 +1,56 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    int hamb, queso, papas, soda;
+    float totalHamb, totalQueso, totalPapas, totalSoda;
+    float totalGeneral, totalCantidad;
+
+    cout << "Cantidad de hamburguesas: ";
+    cin >> hamb;
+
+    cout << "Cantidad de hamburguesas con queso: ";
+    cin >> queso;
+
+    cout << "Cantidad de papas fritas: ";
+    cin >> papas;
+
+    cout << "Cantidad de sodas: ";
+    cin >> soda;
+
+    totalHamb = hamb * 3;
+    totalQueso = queso * 5;
+    totalPapas = papas * 2;
+    totalSoda = soda * 2.5;
+
+    totalCantidad = hamb + queso + papas + soda;
+    totalGeneral = totalHamb + totalQueso + totalPapas + totalSoda;
+
+    cout << endl;
+    cout << "ITEM\t\t\tCANTIDAD\tTOTAL PARCIAL" << endl;
+
+    cout << "Hamburguesas\t\t"
+         << hamb << "\t\t"
+         << totalHamb << " Bs" << endl;
+
+    cout << "Hamb. con queso\t\t"
+         << queso << "\t\t"
+         << totalQueso << " Bs" << endl;
+
+    cout << "Papas fritas\t\t"
+         << papas << "\t\t"
+         << totalPapas << " Bs" << endl;
+
+    cout << "Soda\t\t\t"
+         << soda << "\t\t"
+         << totalSoda << " Bs" << endl;
+
+    cout << "---------------------------------------------" << endl;
+
+    cout << "TOTAL\t\t\t"
+         << totalCantidad << "\t\t"
+         << totalGeneral << " Bs" << endl;
+
+    return 0;
+}
