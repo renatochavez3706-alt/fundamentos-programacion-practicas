@@ -1,0 +1,49 @@
+#include<iostream>
+using namespace std;
+
+void leerVector(float v[], int n);
+void calcularPromedios(float v[], float promedios[], int n);
+void mostrarResultados(float v[], float promedios[], int n);
+
+int main(){
+    float v[100], promedios[100];
+    int n;
+
+    cout<<"Ingrese la cantidad de valores: "<<endl;
+    cin>>n;
+
+    leerVector(v, n);
+
+    calcularPromedios(v, promedios, n);
+
+    mostrarResultados(v, promedios, n);
+
+    return 0;
+}
+
+void leerVector(float v[], int n){
+    for(int i=0; i<n; i++){
+        cout<<"Ingrese el valor "<<i+1<<": "<<endl;
+        cin>>v[i];
+    }
+}
+
+void calcularPromedios(float v[], float promedios[], int n){
+    for(int i=0; i<n-2; i++){
+        promedios[i] = (v[i] + v[i+1] + v[i+2]) / 3;
+    }
+}
+
+void mostrarResultados(float v[], float promedios[], int n){
+    cout<<"\nVALORES DEL VECTOR:"<<endl;
+
+    for(int i=0; i<n; i++){
+        cout<<v[i]<<" ";
+    }
+
+    cout<<"\n\nPROMEDIOS DE CADA 3 VALORES CONSECUTIVOS:"<<endl;
+
+    for(int i=0; i<n-2; i++){
+        cout<<"P"<<i+1<<" = "<<promedios[i]<<endl;
+    }
+}
