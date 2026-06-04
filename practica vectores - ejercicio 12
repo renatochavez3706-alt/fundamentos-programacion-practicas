@@ -1,0 +1,57 @@
+#include<iostream>
+using namespace std;
+
+void leerVector(int v[], int n);
+int eliminarDuplicados(int v[], int n);
+void mostrarVector(int v[], int n);
+
+int main(){
+    int v[100];
+    int n;
+
+    cout<<"Ingrese la cantidad de elementos: ";
+    cin>>n;
+
+    leerVector(v, n);
+
+    n = eliminarDuplicados(v, n);
+
+    cout<<"\nVECTOR SIN DUPLICADOS:"<<endl;
+    mostrarVector(v, n);
+
+    return 0;
+}
+
+void leerVector(int v[], int n){
+    for(int i=0; i<n; i++){
+        cout<<"Ingrese el valor "<<i+1<<": ";
+        cin>>v[i];
+    }
+}
+
+int eliminarDuplicados(int v[], int n){
+    for(int i=0; i<n; i++){
+        for(int j=i+1; j<n; j++){
+
+            if(v[i] == v[j]){
+
+                for(int k=j; k<n-1; k++){
+                    v[k] = v[k+1];
+                }
+
+                n--;
+                j--;
+            }
+        }
+    }
+
+    return n;
+}
+
+void mostrarVector(int v[], int n){
+    for(int i=0; i<n; i++){
+        cout<<v[i]<<" ";
+    }
+
+    cout<<endl;
+}
