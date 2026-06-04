@@ -1,0 +1,51 @@
+#include<iostream>
+using namespace std;
+
+void leerVector(int v[], int n);
+void invertirVector(int v[], int invertido[], int n);
+void mostrarVectores(int v[], int invertido[], int n);
+
+int main(){
+    int v[100], invertido[100];
+    int n;
+
+    cout<<"Ingrese la cantidad de valores: "<<endl;
+    cin>>n;
+
+    leerVector(v, n);
+
+    invertirVector(v, invertido, n);
+
+    mostrarVectores(v, invertido, n);
+
+    return 0;
+}
+
+void leerVector(int v[], int n){
+    for(int i=0; i<n; i++){
+        cout<<"Ingrese el valor "<<i+1<<": "<<endl;
+        cin>>v[i];
+    }
+}
+
+void invertirVector(int v[], int invertido[], int n){
+    for(int i=0; i<n; i++){
+        invertido[i] = v[n - 1 - i];
+    }
+}
+
+void mostrarVectores(int v[], int invertido[], int n){
+    cout<<"\nVECTOR ORIGINAL: "<<endl;
+
+    for(int i=0; i<n; i++){
+        cout<<v[i]<<" ";
+    }
+
+    cout<<"\nVECTOR INVERTIDO: "<<endl;
+
+    for(int i=0; i<n; i++){
+        cout<<invertido[i]<<" ";
+    }
+
+    cout<<endl;
+}
