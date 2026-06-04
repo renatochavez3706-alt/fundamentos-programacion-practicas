@@ -1,0 +1,75 @@
+#include<iostream>
+using namespace std;
+
+void leerVector(int v[], int n);
+void intercalarVectores(int A[], int n, int B[], int m, int C[]);
+void mostrarVector(int v[], int n);
+
+int main(){
+    int A[100], B[100], C[200];
+    int n, m;
+
+    cout<<"Ingrese la cantidad de elementos del vector A: ";
+    cin>>n;
+
+    cout<<"Ingrese los elementos ordenados de A:"<<endl;
+    leerVector(A, n);
+
+    cout<<"Ingrese la cantidad de elementos del vector B: ";
+    cin>>m;
+
+    cout<<"Ingrese los elementos ordenados de B:"<<endl;
+    leerVector(B, m);
+
+    intercalarVectores(A, n, B, m, C);
+
+    cout<<"\nVECTOR INTERCALADO Y ORDENADO:"<<endl;
+    mostrarVector(C, n + m);
+
+    return 0;
+}
+
+void leerVector(int v[], int n){
+    for(int i=0; i<n; i++){
+        cout<<"Valor "<<i+1<<": ";
+        cin>>v[i];
+    }
+}
+
+void intercalarVectores(int A[], int n, int B[], int m, int C[]){
+    int i = 0;
+    int j = 0;
+    int k = 0;
+
+    while(i < n && j < m){
+        if(A[i] < B[j]){
+            C[k] = A[i];
+            i++;
+        }
+        else{
+            C[k] = B[j];
+            j++;
+        }
+        k++;
+    }
+
+    while(i < n){
+        C[k] = A[i];
+        i++;
+        k++;
+    }
+
+    while(j < m){
+        C[k] = B[j];
+        j++;
+        k++;
+    }
+}
+
+void mostrarVector(int v[], int n){
+    for(int i=0; i<n; i++){
+        cout<<v[i]<<" ";
+    }
+
+    cout<<endl;
+}
