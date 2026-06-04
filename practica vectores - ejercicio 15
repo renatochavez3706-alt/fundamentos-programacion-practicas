@@ -1,0 +1,78 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+void leerDatos(string alumnos[], float notas[], int n);
+void ordenarDescendente(string alumnos[], float notas[], int n);
+void mostrarTresMejores(string alumnos[], float notas[], int n);
+
+int main(){
+    string alumnos[100];
+    float notas[100];
+    int n;
+
+    cout<<"Ingrese la cantidad de alumnos: ";
+    cin>>n;
+    cin.ignore();
+
+    leerDatos(alumnos, notas, n);
+
+    ordenarDescendente(alumnos, notas, n);
+
+    mostrarTresMejores(alumnos, notas, n);
+
+    return 0;
+}
+
+void leerDatos(string alumnos[], float notas[], int n){
+    for(int i=0; i<n; i++){
+        cout<<"\nNombre del alumno "<<i+1<<": ";
+        getline(cin, alumnos[i]);
+
+        cout<<"Nota: ";
+        cin>>notas[i];
+        cin.ignore();
+    }
+}
+
+void ordenarDescendente(string alumnos[], float notas[], int n){
+    float auxNota;
+    string auxAlumno;
+
+    for(int i=0; i<n-1; i++){
+        for(int j=i+1; j<n; j++){
+
+            if(notas[i] < notas[j]){
+
+                auxNota = notas[i];
+                notas[i] = notas[j];
+                notas[j] = auxNota;
+
+                auxAlumno = alumnos[i];
+                alumnos[i] = alumnos[j];
+                alumnos[j] = auxAlumno;
+            }
+        }
+    }
+}
+
+void mostrarTresMejores(string alumnos[], float notas[], int n){
+    cout<<"\nLAS TRES MEJORES NOTAS\n";
+
+    int limite;
+
+    if(n < 3){
+        limite = n;
+    }
+    else{
+        limite = 3;
+    }
+
+    for(int i=0; i<limite; i++){
+        cout<<i+1<<". "
+            <<alumnos[i]
+            <<" - "
+            <<notas[i]
+            <<endl;
+    }
+}
