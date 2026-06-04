@@ -1,0 +1,65 @@
+#include<iostream>
+using namespace std;
+
+void leerVector(float v[], int n);
+float mayorDiferencia(float v[], int n);
+void mostrarResultado(float v[], int n, float diferencia);
+
+int main(){
+    float v[100];
+    float diferencia;
+    int n;
+
+    cout<<"Ingrese la cantidad de elementos: "<<endl;
+    cin>>n;
+
+    leerVector(v, n);
+
+    diferencia = mayorDiferencia(v, n);
+
+    mostrarResultado(v, n, diferencia);
+
+    return 0;
+}
+
+void leerVector(float v[], int n){
+    for(int i=0; i<n; i++){
+        cout<<"Ingrese el valor "<<i+1<<": "<<endl;
+        cin>>v[i];
+    }
+}
+
+float mayorDiferencia(float v[], int n){
+    float dif, mayor;
+
+    mayor = v[1] - v[0];
+    if(mayor < 0){
+        mayor = -mayor;
+    }
+
+    for(int i=1; i<n; i++){
+        dif = v[i] - v[i-1];
+
+        if(dif < 0){
+            dif = -dif;
+        }
+
+        if(dif > mayor){
+            mayor = dif;
+        }
+    }
+
+    return mayor;
+}
+
+void mostrarResultado(float v[], int n, float diferencia){
+    cout<<"\nVECTOR INGRESADO:"<<endl;
+
+    for(int i=0; i<n; i++){
+        cout<<v[i]<<" ";
+    }
+
+    cout<<endl;
+    cout<<"La mayor diferencia entre elementos consecutivos es: ";
+    cout<<diferencia<<endl;
+}
