@@ -1,0 +1,53 @@
+#include<iostream>
+using namespace std;
+
+void leerVector(float v[], int n);
+float minimoValor(float v[], int n);
+void mostrarResultado(float v[], int n, float minimo);
+
+int main(){
+    float v[100];
+    int n;
+    float minimo;
+
+    cout<<"Ingrese la cantidad de valores: "<<endl;
+    cin>>n;
+
+    leerVector(v, n);
+
+    minimo = minimoValor(v, n);
+
+    mostrarResultado(v, n, minimo);
+
+    return 0;
+}
+
+void leerVector(float v[], int n){
+    for(int i=0; i<n; i++){
+        cout<<"Ingrese el valor "<<i+1<<": "<<endl;
+        cin>>v[i];
+    }
+}
+
+float minimoValor(float v[], int n){
+    float minimo = v[0];
+
+    for(int i=0; i<n; i++){
+        if(v[i] < minimo){
+            minimo = v[i];
+        }
+    }
+
+    return minimo;
+}
+
+void mostrarResultado(float v[], int n, float minimo){
+    cout<<"VALORES REGISTRADOS: "<<endl;
+
+    for(int i=0; i<n; i++){
+        cout<<v[i]<<" ";
+    }
+
+    cout<<endl;
+    cout<<"El minimo valor es: "<<minimo<<endl;
+}
