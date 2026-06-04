@@ -1,0 +1,54 @@
+#include<iostream>
+using namespace std;
+
+void leerVector(float v[], int n);
+void ordenarAscendente(float v[], int n);
+void mostrarVector(float v[], int n);
+
+int main(){
+    float v[100];
+    int n;
+
+    cout<<"Ingrese la cantidad de elementos: ";
+    cin>>n;
+
+    leerVector(v, n);
+
+    ordenarAscendente(v, n);
+
+    cout<<"\nVECTOR ORDENADO ASCENDENTEMENTE:"<<endl;
+    mostrarVector(v, n);
+
+    return 0;
+}
+
+void leerVector(float v[], int n){
+    for(int i=0; i<n; i++){
+        cout<<"Ingrese el valor "<<i+1<<": ";
+        cin>>v[i];
+    }
+}
+
+void ordenarAscendente(float v[], int n){
+    float aux;
+
+    for(int i=0; i<n-1; i++){
+        for(int j=i+1; j<n; j++){
+
+            if(v[i] > v[j]){
+                aux = v[i];
+                v[i] = v[j];
+                v[j] = aux;
+            }
+
+        }
+    }
+}
+
+void mostrarVector(float v[], int n){
+    for(int i=0; i<n; i++){
+        cout<<v[i]<<" ";
+    }
+
+    cout<<endl;
+}
