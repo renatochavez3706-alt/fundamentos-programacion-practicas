@@ -1,0 +1,53 @@
+#include<iostream>
+using namespace std;
+
+void leerVector(int v[], int n);
+void concatenarVectores(int A[], int n, int B[], int m, int C[]);
+void mostrarVector(int v[], int n);
+
+int main(){
+    int A[100], B[100], C[200];
+    int n, m;
+
+    cout<<"Ingrese la cantidad de elementos del vector A: ";
+    cin>>n;
+
+    leerVector(A, n);
+
+    cout<<"Ingrese la cantidad de elementos del vector B: ";
+    cin>>m;
+
+    leerVector(B, m);
+
+    concatenarVectores(A, n, B, m, C);
+
+    cout<<"\nVECTOR CONCATENADO:"<<endl;
+    mostrarVector(C, n+m);
+
+    return 0;
+}
+
+void leerVector(int v[], int n){
+    for(int i=0; i<n; i++){
+        cout<<"Ingrese el valor "<<i+1<<": ";
+        cin>>v[i];
+    }
+}
+
+void concatenarVectores(int A[], int n, int B[], int m, int C[]){
+    for(int i=0; i<n; i++){
+        C[i] = A[i];
+    }
+
+    for(int i=0; i<m; i++){
+        C[n+i] = B[i];
+    }
+}
+
+void mostrarVector(int v[], int n){
+    for(int i=0; i<n; i++){
+        cout<<v[i]<<" ";
+    }
+
+    cout<<endl;
+}
