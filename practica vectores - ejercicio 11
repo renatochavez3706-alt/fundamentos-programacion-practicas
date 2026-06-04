@@ -1,0 +1,57 @@
+#include<iostream>
+using namespace std;
+
+void leerVector(float v[], int n);
+void contarValores(float v[], int n, int &positivos, int &negativos, int &ceros);
+void mostrarResultados(float v[], int n, int positivos, int negativos, int ceros);
+
+int main(){
+    float v[100];
+    int n;
+    int positivos = 0, negativos = 0, ceros = 0;
+
+    cout<<"Ingrese la cantidad de elementos: "<<endl;
+    cin>>n;
+
+    leerVector(v, n);
+
+    contarValores(v, n, positivos, negativos, ceros);
+
+    mostrarResultados(v, n, positivos, negativos, ceros);
+
+    return 0;
+}
+
+void leerVector(float v[], int n){
+    for(int i=0; i<n; i++){
+        cout<<"Ingrese el valor "<<i+1<<": ";
+        cin>>v[i];
+    }
+}
+
+void contarValores(float v[], int n, int &positivos, int &negativos, int &ceros){
+    for(int i=0; i<n; i++){
+        if(v[i] > 0){
+            positivos++;
+        }
+        else if(v[i] < 0){
+            negativos++;
+        }
+        else{
+            ceros++;
+        }
+    }
+}
+
+void mostrarResultados(float v[], int n, int positivos, int negativos, int ceros){
+    cout<<"\nVECTOR INGRESADO:"<<endl;
+
+    for(int i=0; i<n; i++){
+        cout<<v[i]<<" ";
+    }
+
+    cout<<endl;
+    cout<<"Cantidad de positivos: "<<positivos<<endl;
+    cout<<"Cantidad de negativos: "<<negativos<<endl;
+    cout<<"Cantidad de ceros: "<<ceros<<endl;
+}
