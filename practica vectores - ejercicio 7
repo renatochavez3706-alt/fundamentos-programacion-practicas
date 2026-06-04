@@ -1,0 +1,52 @@
+#include<iostream>
+using namespace std;
+
+void cargarNumeros(string numeros[]);
+void mostrarLiteral(string numeros[], int n);
+
+int main(){
+    string numeros[21];
+    int n;
+
+    cargarNumeros(numeros);
+
+    cout<<"Ingrese un numero entre 0 y 20: ";
+    cin>>n;
+
+    mostrarLiteral(numeros, n);
+
+    return 0;
+}
+
+void cargarNumeros(string numeros[]){
+    numeros[0]="CERO";
+    numeros[1]="UNO";
+    numeros[2]="DOS";
+    numeros[3]="TRES";
+    numeros[4]="CUATRO";
+    numeros[5]="CINCO";
+    numeros[6]="SEIS";
+    numeros[7]="SIETE";
+    numeros[8]="OCHO";
+    numeros[9]="NUEVE";
+    numeros[10]="DIEZ";
+    numeros[11]="ONCE";
+    numeros[12]="DOCE";
+    numeros[13]="TRECE";
+    numeros[14]="CATORCE";
+    numeros[15]="QUINCE";
+    numeros[16]="DIECISEIS";
+    numeros[17]="DIECISIETE";
+    numeros[18]="DIECIOCHO";
+    numeros[19]="DIECINUEVE";
+    numeros[20]="VEINTE";
+}
+
+void mostrarLiteral(string numeros[], int n){
+    if(n>=0 && n<=20){
+        cout<<"Numero en literal: "<<numeros[n]<<endl;
+    }
+    else{
+        cout<<"Numero fuera de rango"<<endl;
+    }
+}
